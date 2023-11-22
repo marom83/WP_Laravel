@@ -54,3 +54,5 @@ Route::get('/dolgozok', 'App\Http\Controllers\EmployeeController@list')->name('d
 Route::get('/dolgozok/uj', 'App\Http\Controllers\EmployeeController@add')->name('dolgozok.hozzaad');
 
 Route::post('/dolgozok/uj', 'App\Http\Controllers\EmployeeController@store')->name('dolgozok.letrehoz');
+
+Route::delete('dolgozok/torol/{rekord}', 'App\Http\Controllers\EmployeeController@delete')->name('dolgozok.torol');  

@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
     <h2>Dolgozó hozzáadása</h2>
-    <form action="{{('dolgozok.letrehoz')}}" method="POST">
+    <form action="{{route('dolgozok.letrehoz')}}" method="POST">
         @csrf
         @method('POST')
         <input type="text" placeholder="Dolgozó neve" name="empName"/><br/>

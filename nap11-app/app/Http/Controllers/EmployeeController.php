@@ -15,6 +15,11 @@ class EmployeeController extends Controller
         return view('employees.list', $viewData);
     }
 
+    public function delete(Employee $rekord){
+        $rekord->delete();
+        return redirect()->route('dolgozok.lista');
+    }
+
     public function add(){
         return view('employees.add');
     }
@@ -22,14 +27,15 @@ class EmployeeController extends Controller
     public function store(Request $request){
         $request->validate([
             'empName' => 'required',
-            'empSSN' => 'required',
+            'empSsn' => 'required',
             'empEmail' => 'required'
         ]);
         $empRecord = new Employee();
         $empRecord->ename = $request->get('empName');
-        $empRecord->essn = $request->get('empSSN');
+        $empRecord->essn = $request->get('empSsn');
         $empRecord->eemail = $request->get('empEmail');
         $empRecord->save();
 
+        return redirect()->route('dolgozok.lista');
     }
 }

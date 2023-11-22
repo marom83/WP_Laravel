@@ -11,6 +11,7 @@
                 <th>Dolgozó neve</th>
                 <th>Dolgozó TAJ száma</th>
                 <th>Dolgozó e-mail cím</th>
+                <th>Műveletek</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,12 @@
                     <td>{{$item->ename}}</td>
                     <td>{{$item->essn}}</td>
                     <td>{{$item->eemail}}</td>
+                    <td><form action="{{route('dolgozok.torol', $item->eid)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Törlés</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
